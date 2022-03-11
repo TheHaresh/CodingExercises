@@ -38,7 +38,9 @@ public class InvoiceController {
 	}
 	
 	@RequestMapping("/addNew")
-	public String addNewInvoiceNum() {
+	public String addNewInvoiceNum(Model model) {
+		
+		model.addAttribute("number", new Invoice()); 
 	
 		return "AddInvoice";
 	}
@@ -48,8 +50,7 @@ public class InvoiceController {
 		
 		if(bindingResult.hasErrors()) {
 			
-			model.addAttribute("number", inv);
-			return "redirect:/err";
+			return "AddInvoice";
 		}else {			
 			
 		 Boolean result = invoiceService.save(inv);

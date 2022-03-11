@@ -41,13 +41,15 @@
 		<div id="content">
 			<form:form action="/saveInvoiceNum" method="POST" modelAttribute="number">
        		
-       			<label path="invoiceNum">Enter Invoice Number:</label>
-            	<input type="text" name="invoiceNum" /> <span class="error"></span>
+       			<form:label path="invoiceNum">Enter Invoice Number:</form:label>
+            	<form:input path="invoiceNum" /> <form:errors path="invoiceNum" cssClass="error"></form:errors>
             	<br/><br/>
-            	
+            	 
             	<button type="submit">Save</button>
        
        		</form:form>
+       		
+       		<a href="${pageContext.request.contextPath}/"><button>Back</button></a>
        </div>
     </div>
 
